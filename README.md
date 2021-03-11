@@ -51,22 +51,12 @@ As input we expect paired end data, where the file name consists of samplenameR1
 The sample name needs to be specified in the workflow/config/species_samples.tsv file. Here a corresponding species name needs to be specified.
 The sample name has to consist of three parts separated by an underscore, e.g. Family_Genus_spec-1. The species name is also used to name output files and folders. If you have multiple samples from the same species you need to make sure that you do not overwrite results, by choosing an appropriate identifier. During the contamination check this format is important. Here the species name is extracted from the first three parts of the sequence header, with the separators '_' AND '-'. Sequences from the same species are not evaluated for contamination. The third part of the species name of closely related subspecies or samples from the same species can then be further subdivided into parts that are separated by a '-'.
 
-sample
-species
-9_S17
-Epicopeiidae_Parabraxas_davidi
-18_S33
-Epicopeiidae_Psychostrophia_nymphidiaria-1
-18_S34
-Epicopeiidae_Psychostrophia_nymphidiaria-2
-...
-...
-
-
-
-
-
-
+| sample | species |
+| ------------- | -----:|
+|9_S17| Epicopeiidae_Parabraxas_davidi |
+| 18_S33 | Epicopeiidae_Psychostrophia_nymphidiaria-1 |
+| 18_S34 | Epicopeiidae_Psychostrophia_nymphidiaria-2 |
+| ... | ... |
 
 ### External genomes or transcriptomes
 
