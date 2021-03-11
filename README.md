@@ -24,7 +24,7 @@ This workflow was built using Snakemake, which is a powerful workflow management
 ## Clone repository
 
 In order to download the workflow to your current directory, please use the following git command:
-git clone https://datacenter.zfmk.de/gitlab/smartin/lepi_te_workflow.git
+`git clone https://github.com/ZFMK/TEnriAn.git `
 
 ## Setup
 
@@ -45,14 +45,14 @@ Building the container can take some time.
 
 ### Config file
 
-The singularity container is expected to be located in workflow/container/. If the container is located in a different directory, this can be specified in the workflow/config/config.yml file.
+The singularity container is expected to be located in `workflow/container/`. If the container is located in a different directory, this can be specified in the `workflow/config/config.yml` file.
 Parameters for the final alignment filter steps can be adjusted for each dataset.
 
 ### Raw data example
 
-This workflow takes raw sequencing data from different samples as input. These fastq.gz files need to be located in resources/Raw_data.
+This workflow takes raw sequencing data from different samples as input. These fastq.gz files need to be located in `resources/Raw_data`.
 As input we expect paired end data, where the file name consists of samplenameR1.fastq.gz and samplenameR2.fastq.gz.
-The sample name needs to be specified in the workflow/config/species_samples.tsv file. Here a corresponding species name needs to be specified.
+The sample name needs to be specified in the `workflow/config/species_samples.tsv` file. Here a corresponding species name needs to be specified.
 The sample name has to consist of three parts separated by an underscore, e.g. Family_Genus_spec-1. The species name is also used to name output files and folders. If you have multiple samples from the same species you need to make sure that you do not overwrite results, by choosing an appropriate identifier. During the contamination check this format is important. Here the species name is extracted from the first three parts of the sequence header, with the separators '_' AND '-'. Sequences from the same species are not evaluated for contamination. The third part of the species name of closely related subspecies or samples from the same species can then be further subdivided into parts that are separated by a '-'.
 
 | sample | species |
@@ -74,11 +74,11 @@ External data from genomes or transcriptomes can be added to the workflow. They 
 
 ### Prepare Orthograph sets
 
-In order to predict orthologous sequences from the assembled target enrichment sequences, Orthograph is used. For detailed information please visit the Orthograph GITHUB repository. To run this workflow you need to place the Orthograph sets and the sqlite database in the resources/orthograph/ directory and specify the name in the config file. If you start your analysis without a set and database, please have a look at the Orthograph_setup.sh script. You will need to make some adjustments in the beginning of the script, so that it works with your dataset. You will need the following input data:
-  * Tab-delimited file that contains information about your orthologous groups, with the following three columns: 'name of ortho-group' ‘gene id' 'taxon_name' (Please have a look at the example file resources/orthograph/lepi-tabfile-exons.txt)
+In order to predict orthologous sequences from the assembled target enrichment sequences, Orthograph is used. For detailed information please visit the Orthograph GITHUB repository. To run this workflow you need to place the Orthograph sets and the sqlite database in the `resources/orthograph/` directory and specify the name in the config file. If you start your analysis without a set and database, please have a look at the Orthograph_setup.sh script. You will need to make some adjustments in the beginning of the script, so that it works with your dataset. You will need the following input data:
+  * Tab-delimited file that contains information about your orthologous groups, with the following three columns: 'name of ortho-group' ‘gene id' 'taxon_name' (Please have a look at the example file `resources/orthograph/lepi-tabfile-exons.txt`)
   * Official gene sets (OGS) that contain all predicted protein sequences for each taxon. Each OGS needs to be in a separate sequence file. The sequence headers need to be identical to the gene_id from the information file about the orthologous groups. Not all sequences in the OGS need to be included in the tab-delimited file, but the OGS needs to be complete in order to identify best reciprocal hits.
   * OGS sequences need to be in FASTA format and have a sequence header with only alphanumeric signs and '-' or '_' . Any special character can interfere with the software, which uses some characters for field delimitation.
-  * OGS sequence files need to be placed in resources/orthograph/INPUT_OGS/ and the sequence file name needs to have the format 'TAXON_name.fas'
+  * OGS sequence files need to be placed in `resources/orthograph/INPUT_OGS/` and the sequence file name needs to have the format 'TAXON_name.fas'
 
 The Orthograph_setup.sh script will create an initial config file for Orthograph, then create the orthograph-db and upload all OGS files into this database. Then it will also upload the orthologous groups file. In this step some user interaction is needed. You have to input the name of the orthology set and confirm the OGS that you want to use. Next it will start an initial Orthograph run with resources/orthograph/Initialize_sets.fas. This may take some time because Orthograph will now create the sets. Feedback will be written to initial_orthograph_run.log file.
 
