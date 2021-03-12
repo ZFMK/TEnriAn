@@ -31,8 +31,11 @@ In order to download the workflow to your current directory, please use the foll
 ### Conda
 
 To run the workflow we need to install snakemake and some other basic utilities. This can be done with the environment.yml file, which is part of this repository. It provides all the versions and packages that need to be installed. Create the conda environment with the following command:
+
 `conda env create -f environment.yml`
+
 After the environment was successfully created you need to activate it.
+
 `conda activate TEnriAn`
 
 ### Singularity
