@@ -24,6 +24,7 @@ This workflow was built using Snakemake, which is a powerful workflow management
 ## Clone repository
 
 In order to download the workflow to your current directory, please use the following git command:
+
 `git clone https://github.com/ZFMK/TEnriAn.git `
 
 ## Setup
@@ -41,7 +42,10 @@ After the environment was successfully created you need to activate it.
 ### Singularity
 
 The workflow uses a singularity container with a lot of software installed. This container brings its own operating system (Ubuntu 18.04), which makes you independent from your local operating system and ensures reproducibility of your analyses. The singularity container needs to be built from a recipe file. This can be done with the helper script.
-You can build the container on your local system, but you will need sudo rights. A recipe file is located in workflow/container/EnGeTrAl_container.def. The singularity command to build the container is: `sudo singularity build workflow/container/EnGeTrAl_container.{sif,def}`
+You can build the container on your local system, but you will need sudo rights. A recipe file is located in workflow/container/EnGeTrAl_container.def. The singularity command to build the container is: 
+
+`sudo singularity build workflow/container/EnGeTrAl_container.{sif,def}`
+
 Building the container can take some time.
 
 ## Configuration and resources
@@ -83,7 +87,7 @@ In order to predict orthologous sequences from the assembled target enrichment s
   * OGS sequences need to be in FASTA format and have a sequence header with only alphanumeric signs and '-' or '_' . Any special character can interfere with the software, which uses some characters for field delimitation.
   * OGS sequence files need to be placed in `resources/orthograph/INPUT_OGS/` and the sequence file name needs to have the format 'TAXON_name.fas'
 
-The Orthograph_setup.sh script will create an initial config file for Orthograph, then create the orthograph-db and upload all OGS files into this database. Then it will also upload the orthologous groups file. In this step some user interaction is needed. You have to input the name of the orthology set and confirm the OGS that you want to use. Next it will start an initial Orthograph run with resources/orthograph/Initialize_sets.fas. This may take some time because Orthograph will now create the sets. Feedback will be written to initial_orthograph_run.log file.
+The Orthograph_setup.sh script will create an initial config file for Orthograph, then create the orthograph-db and upload all OGS files into this database. Then it will also upload the orthologous groups file. In this step some user interaction is needed. You have to input the name of the orthology set and confirm the OGS that you want to use. Next it will start an initial Orthograph run with `resources/orthograph/Initialize_sets.fas`. This may take some time because Orthograph will now create the sets. Feedback will be written to `initial_orthograph_run.log` file.
 
 ## Run the analysis
 
@@ -93,10 +97,18 @@ The workflow is divided into three parts:
   3. alignment_and_filter (hmmalign, convert Stockholm format, align corresponding nucleotide sequences, trim hmm-alignment, remove outliers, identify Target Enrichment taxa, filter alignment, Aliscore)
 
 Each part must be executed one after the other:
+
 `snakemake --until run_assembly --use-singularity --use-conda --cores 12`
+
 `snakemake --until run_orthology --use-singularity --use-conda --cores 12`
+
 `snakemake --until run_alignment_filtering --use-singularity --use-conda --cores 12`
-Snakemake will create the environment automatically at the beginning of each run. It is possible to create them beforehand with the following command: `snakemake --use-conda --use-singularity --conda-create-envs-only --cores 1`. We need to use the option `--use-singularity` in order to activate the singularity container that provides all the major tools for this pipeline. Also for some steps, a specific conda environment needs to be activated so we have to specify the `--use-conda` option. Each rule will check that the previous rule was run and look for flag-files in the results folder. If you want to rerun a specific rule you can also use the `--forcerun` option. Before you start your actual run it is recommended to use the `--dry-run` option, to check if everything is set up correctly. The results of each step will be written to the corresponding directory in the results folder. For more detailed information on how to run snakemake, please see the [snakemake documentation](https://snakemake.readthedocs.io/en/stable/).
+
+Snakemake will create the environment automatically at the beginning of each run. It is possible to create them beforehand with the following command: 
+
+`snakemake --use-conda --use-singularity --conda-create-envs-only --cores 1`. 
+
+We need to use the option `--use-singularity` in order to activate the singularity container that provides all the major tools for this pipeline. Also for some steps, a specific conda environment needs to be activated so we have to specify the `--use-conda` option. Each rule will check that the previous rule was run and look for flag-files in the results folder. If you want to rerun a specific rule you can also use the `--forcerun` option. Before you start your actual run it is recommended to use the `--dry-run` option, to check if everything is set up correctly. The results of each step will be written to the corresponding directory in the results folder. For more detailed information on how to run snakemake, please see the [snakemake documentation](https://snakemake.readthedocs.io/en/stable/).
 
 ## Citation
 
