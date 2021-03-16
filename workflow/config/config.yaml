@@ -1,0 +1,26 @@
+container:
+    singularity:
+        "/share/scientific_bin/singularity/containers/TEnriAn_container.sif"
+        #"workflow/container/TEnriAn_container.sif"
+
+sample_info:
+    "workflow/config/species_samples.tsv"
+external_evidence:
+    "workflow/config/species_external.tsv"
+
+assembly:
+    Trinity_Max_RAM: 700G
+    
+orthograph:
+    sets_dir:
+        "resources/orthograph/sets"
+    ortho_set:
+        "test_Orthoset"
+    database:
+        "resources/orthograph/test_Orthograph_DB.sqlite"
+
+filtering:
+    min_ali_length: 50 
+    HE_per_position: 2 
+    taxa_per_position: 4 
+    min_aa: 10

@@ -1,0 +1,21 @@
+#ignore the following files and folders
+initial_orthograph_run.log
+Init_spec
+Orthograph_setup.local.sh
+
+results/*
+
+resources/orthograph/sets/test_Orthoset/*
+resources/orthograph/orthograph_init.conf
+resources/orthograph/test_Orthograph_DB.sqlite
+
+resources/orthograph/sets/Lepidoptera_orthoDB9_extended/*
+
+snakemake_test.e*
+snakemake_test.o*
+
+Snake_submit_slim.sh
+workflow/.snakemake/*
+workflow/container/*.sif
+.snakemake/*
+.conda/*

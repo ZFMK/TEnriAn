@@ -1,0 +1,53 @@
+#######################
+#   TEnRiAn Workflow  #
+#######################
+
+import pandas as pd
+
+configfile: "workflow/config/config.yaml"
+container: config["container"]["singularity"]
+
+samples = pd.read_table(config["sample_info"] , dtype=str).set_index(["sample"], drop=False)
+external = pd.read_table(config["external_evidence"] , dtype=str).set_index(["species"], drop=False)
+
+## include rules ##
+
+include: "rules/assembly.smk"
+include: "rules/orthology.smk"
+include: "rules/alignments_filtering.smk"
+
+## functions ##
+
+def return_list_of_sample_output():
+    mylist=[]
+    for dataset in samples['sample'].tolist():
+        mylist.append("results/abundance/{dataset}/{dataset}.renamed.fas".format(dataset=dataset))
+    return set(mylist)
+
+## rules ##
+
+rule run_assembly:
+    input:
+        "results/02_orthology/data_assembly_complete.check"
+    output:
+        "results/01_assembly-step.complete"
+    shell:
+        "touch {output}"
+
+rule run_orthology:
+    input:
+        #"results/02_orthology/orthograph_collection.done"
+        "results/02_orthology/orthograph_cleanup.done"
+    output:
+        "results/02_orthology-step.complete"
+    shell:
+        "touch {output}"
+
+rule run_alignment_filtering:
+    input:
+        "results/03_alignments/03_alignments_filtering-step.complete"
+    output:
+        "results/03_alignment_filtering-step.complete"
+    shell:
+        "touch {output}"
+

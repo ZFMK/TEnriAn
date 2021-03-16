@@ -1,0 +1,4 @@
+g++ -O2 -I .  global-types-and-parameters.cpp remove_outlier_sequences.cpp -o Remove-Outlier-Sequences-v0.9.5
+
+
+

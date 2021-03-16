@@ -1,0 +1,18 @@
+Call stacks of the remove_outlier_sequences Program:
+====================================================
+
+run_outlier_determination(general_param, out_param, rm_vs_detect_mode);
+  sliding_window_check_outlier(out_param, rm_vs_detect_mode, prot_seqs, outlier_counter_map, outlier_coord_map, outlier_windows_prop);
+    Creates partial data sets of window size for protein alignment as a copy
+      detect_and_remove_outliers_from_CSeqs(out_param, &seqs_partial, seqnames_removed, count_valid_seqs_in_window);
+         int one_round_of_outlier_removal(outlier_parameters out_param, CSequences2 **pseqs, vector<faststring> &seqnames_removed, vector<int> &below_or_eq_max_gap_proportion_in_mode_1)
+	 // Removes gap only positions, but only in copy and only gap only positions. Positions containing ambig or lower case letters are not removed. The oringial data set is not altered in this step.
+    Outlier windows are stored for later usage.
+
+  if (remove_mode):
+    if remove_corrsponding_DNA_file:
+      remove_and_mask_outliers_in_a_corresponding_nucleotide_alignment(general_param, out_param, prot_seqs, outlier_coord_map, outlier_windows_prop, general_param.rm_gap_ambig_lower_case_sites);
+
+
+    remove_and_mask_outliers(general_param, out_param, prot_seqs, outlier_coord_map, outlier_windows_prop, general_param.rm_gap_ambig_lower_case_sites);
+    
