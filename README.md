@@ -116,11 +116,11 @@ Mayer C, Dietz L, Call E, Kukowka S, Martin S, Espeland M 2021. Adding leaves to
 
 ## References
 
-    • Mölder, F., Jablonski, K.P., Letcher, B., Hall, M.B., Tomkins-Tinch, C.H., Sochat, V., Forster, J., Lee, S., Twardziok, S.O., Kanitz, A., Wilm, A., Holtgrewe, M., Rahmann, S., Nahnsen, S., Köster, J., 2021. Sustainable data analysis with Snakemake. F1000Res 10, 33. https://doi.org/10.12688/f1000research.29032.1
-    * Kurtzer, G.M., Sochat, V. & Bauer, M.W. (2017) Singularity: Scientific containers for mobility of compute. PLOS ONE, 12, e0177459
-    * Petersen, M., Meusemann, K., Donath, A., Dowling, D., Liu, S., Peters, R.S., et al. (2017) Orthograph: a versatile tool for mapping coding nucleotide sequences to clusters of orthologous genes. BMC Bioinformatics, 18, 111.
-    * Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu; fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 1 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560 
-    * www.hmmer.org
-    * Grabherr, M.G., Haas, B.J., Yassour, M., Levin, J.Z., Thompson, D.A., Amit, I., et al. (2011) Full-length transcriptome assembly from RNA-Seq data without a reference genome. Nature biotechnology, 29, 644–652.
-    * Misof, B. & Misof, K. (2009) A Monte Carlo approach successfully identifies randomness in multiple sequence alignments : A more objective means of data exclusion. Systematic Biology, 58, 21–34.
+    - Mölder, F., Jablonski, K.P., Letcher, B., Hall, M.B., Tomkins-Tinch, C.H., Sochat, V., Forster, J., Lee, S., Twardziok, S.O., Kanitz, A., Wilm, A., Holtgrewe, M., Rahmann, S., Nahnsen, S., Köster, J., 2021. Sustainable data analysis with Snakemake. F1000Res 10, 33. https://doi.org/10.12688/f1000research.29032.1
+    - Kurtzer, G.M., Sochat, V. & Bauer, M.W. (2017) Singularity: Scientific containers for mobility of compute. PLOS ONE, 12, e0177459
+    - Petersen, M., Meusemann, K., Donath, A., Dowling, D., Liu, S., Peters, R.S., et al. (2017) Orthograph: a versatile tool for mapping coding nucleotide sequences to clusters of orthologous genes. BMC Bioinformatics, 18, 111.
+    - Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu; fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 1 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560 
+    - www.hmmer.org
+    - Grabherr, M.G., Haas, B.J., Yassour, M., Levin, J.Z., Thompson, D.A., Amit, I., et al. (2011) Full-length transcriptome assembly from RNA-Seq data without a reference genome. Nature biotechnology, 29, 644–652.
+    - Misof, B. & Misof, K. (2009) A Monte Carlo approach successfully identifies randomness in multiple sequence alignments : A more objective means of data exclusion. Systematic Biology, 58, 21–34.
    
