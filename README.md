@@ -44,7 +44,7 @@ After the environment was successfully created you need to activate it.
 The workflow uses a singularity container with a lot of software installed. This container brings its own operating system (Ubuntu 18.04), which makes you independent from your local operating system and ensures reproducibility of your analyses. The singularity container needs to be built from a recipe file. This can be done with the helper script.
 You can build the container on your local system, but you will need sudo rights. A recipe file is located in workflow/container/EnGeTrAl_container.def. The singularity command to build the container is: 
 
-`sudo singularity build workflow/container/EnGeTrAl_container.{sif,def}`
+`sudo singularity build workflow/container/TEnriAn_container.{sif,def}`
 
 Building the container can take some time.
 
@@ -53,7 +53,7 @@ Building the container can take some time.
 ### Config file
 
 The singularity container is expected to be located in `workflow/container/`. If the container is located in a different directory, this can be specified in the `workflow/config/config.yml` file.
-Parameters for the final alignment filter steps can be adjusted for each dataset.
+Parameters for the assembly step and the final alignment filter steps can be adjusted for each dataset. Please make sure to adjust parameters to your dataset and computational resources.
 
 ### Raw data example
 
@@ -112,11 +112,15 @@ We need to use the option `--use-singularity` in order to activate the singulari
 
 ## Citation
 
-OUR PAPER
+Mayer C, Dietz L, Call E, Kukowka S, Martin S, Espeland M 2021. Adding leaves to the Lepidoptera tree: Capturing hundreds of nuclear genes from old museum specimens. Systematic Entomology
 
 ## References
 
     • Mölder, F., Jablonski, K.P., Letcher, B., Hall, M.B., Tomkins-Tinch, C.H., Sochat, V., Forster, J., Lee, S., Twardziok, S.O., Kanitz, A., Wilm, A., Holtgrewe, M., Rahmann, S., Nahnsen, S., Köster, J., 2021. Sustainable data analysis with Snakemake. F1000Res 10, 33. https://doi.org/10.12688/f1000research.29032.1
-    
-
-singularity Orthograph fastp hmmalign trinity
+    * Kurtzer, G.M., Sochat, V. & Bauer, M.W. (2017) Singularity: Scientific containers for mobility of compute. PLOS ONE, 12, e0177459
+    * Petersen, M., Meusemann, K., Donath, A., Dowling, D., Liu, S., Peters, R.S., et al. (2017) Orthograph: a versatile tool for mapping coding nucleotide sequences to clusters of orthologous genes. BMC Bioinformatics, 18, 111.
+    * Shifu Chen, Yanqing Zhou, Yaru Chen, Jia Gu; fastp: an ultra-fast all-in-one FASTQ preprocessor, Bioinformatics, Volume 34, Issue 17, 1 September 2018, Pages i884–i890, https://doi.org/10.1093/bioinformatics/bty560 
+    * www.hmmer.org
+    * Grabherr, M.G., Haas, B.J., Yassour, M., Levin, J.Z., Thompson, D.A., Amit, I., et al. (2011) Full-length transcriptome assembly from RNA-Seq data without a reference genome. Nature biotechnology, 29, 644–652.
+    * Misof, B. & Misof, K. (2009) A Monte Carlo approach successfully identifies randomness in multiple sequence alignments : A more objective means of data exclusion. Systematic Biology, 58, 21–34.
+   
