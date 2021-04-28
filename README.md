@@ -89,6 +89,11 @@ In order to predict orthologous sequences from the assembled target enrichment s
 
 The Orthograph_setup.sh script will create an initial config file for Orthograph, then create the orthograph-db and upload all OGS files into this database. Then it will also upload the orthologous groups file. In this step some user interaction is needed. You have to input the name of the orthology set and confirm the OGS that you want to use. Next it will start an initial Orthograph run with `resources/orthograph/Initialize_sets.fas`. This may take some time because Orthograph will now create the sets. Feedback will be written to `initial_orthograph_run.log` file.
 
+#### Lepidoptera Kit (v.1)
+When working with the Target Enrichment Kit for Lepidoptera used in Mayer et. al 2021 , the sqlite database and sets are provided via zenodo
+( Extended Lepidoptera reference sets and sqlite database for the TEnriAn workflow http://doi.org/10.5281/zenodo.4625602 )
+
+
 ## Run the analysis
 
 The workflow is divided into three parts:
