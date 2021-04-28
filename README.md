@@ -81,7 +81,7 @@ External data from genomes or transcriptomes can be added to the workflow. They 
 
 ### Prepare Orthograph sets
 
-In order to predict orthologous sequences from the assembled target enrichment sequences, Orthograph is used. For detailed information please visit the Orthograph GITHUB repository. To run this workflow you need to place the Orthograph sets and the sqlite database in the `resources/orthograph/` directory and specify the name in the config file. If you start your analysis without a set and database, please have a look at the Orthograph_setup.sh script. You will need to make some adjustments in the beginning of the script, so that it works with your dataset. You will need the following input data:
+In order to predict orthologous sequences from the assembled target enrichment sequences, Orthograph is used. For detailed information please visit the Orthograph [GITHUB](https://github.com/mptrsen/Orthograph) repository. To run this workflow you need to place the Orthograph sets and the sqlite database in the `resources/orthograph/` directory and specify the name in the config file. If you start your analysis without a set and database, please have a look at the Orthograph_setup.sh script. You will need to make some adjustments in the beginning of the script, so that it works with your dataset. You will need the following input data:
   * Tab-delimited file that contains information about your orthologous groups, with the following three columns: 'name of ortho-group' ‘gene id' 'taxon_name' (Please have a look at the example file `resources/orthograph/lepi-tabfile-exons.txt`)
   * Official gene sets (OGS) that contain all predicted protein sequences for each taxon. Each OGS needs to be in a separate sequence file. The sequence headers need to be identical to the gene_id from the information file about the orthologous groups. Not all sequences in the OGS need to be included in the tab-delimited file, but the OGS needs to be complete in order to identify best reciprocal hits.
   * OGS sequences need to be in FASTA format and have a sequence header with only alphanumeric signs and '-' or '_' . Any special character can interfere with the software, which uses some characters for field delimitation.
@@ -90,7 +90,8 @@ In order to predict orthologous sequences from the assembled target enrichment s
 The Orthograph_setup.sh script will create an initial config file for Orthograph, then create the orthograph-db and upload all OGS files into this database. Then it will also upload the orthologous groups file. In this step some user interaction is needed. You have to input the name of the orthology set and confirm the OGS that you want to use. Next it will start an initial Orthograph run with `resources/orthograph/Initialize_sets.fas`. This may take some time because Orthograph will now create the sets. Feedback will be written to `initial_orthograph_run.log` file.
 
 #### Lepidoptera Kit (v.1)
-When working with the Target Enrichment Kit for Lepidoptera used in Mayer et. al 2021 , the sqlite database and sets are provided via zenodo
+When working with the Target Enrichment Kit for Lepidoptera used in Mayer et. al 2021 , the sqlite database and sets are provided via zenodo, so the orthograph preparation steps are not needed.
+
 ( Extended Lepidoptera reference sets and sqlite database for the TEnriAn workflow http://doi.org/10.5281/zenodo.4625602 )
 
 
