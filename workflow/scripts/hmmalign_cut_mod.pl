@@ -13,7 +13,7 @@ my $nt_outfile = $ARGV[3];
 open (my $ntFH, '<', $ntfile)
 or die "Could not open $ntfile: $!\n";	
 
-if ($aa_file =~ m/(EOG.*)\.ali\.sth$/){
+if ($aa_file =~ m/(.*)\.ali\.sth$/){
 open (my $FH, '<', "$aa_file");
 
 #aa output
